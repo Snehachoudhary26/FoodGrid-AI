@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodGrid AI — Rescue Today. Feed Tomorrow.</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        deepDark: '#030A07',
+                        surfaceDark: '#0A1712',
+                        glowGreen: '#10B981',
+                        emeraldGlow: '#059669',
+                        softGold: '#F59E0B',
+                        textMuted: '#94A3B8',
+                        textBright: '#F8FAFC'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Smooth Ambient Glows */
+        .ambient-glow-green {
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, rgba(3, 10, 7, 0) 70%);
+        }
+        .ambient-glow-amber {
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.12) 0%, rgba(3, 10, 7, 0) 70%);
+        }
+
+        /* Fluid, Cinematic Hover Physics */
+        .fluid-card {
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+                        box-shadow 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                        border-color 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .fluid-card:hover {
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: 0 25px 50px -12px rgba(16, 185, 129, 0.18);
+            border-color: rgba(16, 185, 129, 0.4);
+        }
+
+        /* Slow Motion Floating Effect */
+        @keyframes floatGentle {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(0.5deg); }
+        }
+        .animate-float-slow {
+            animation: floatGentle 7s ease-in-out infinite;
+        }
+
+        /* Subtle Pulse for Nodes */
+        @keyframes slowPulse {
+            0%, 100% { opacity: 0.4; transform: scale(1); }
+            50% { opacity: 0.9; transform: scale(1.08); }
+        }
+        .animate-pulse-slow {
+            animation: slowPulse 4s ease-in-out infinite;
+        }
+
+        /* Text Gradient */
+        .gradient-text {
+            background: linear-gradient(135deg, #34D399 0%, #10B981 50%, #F59E0B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-deepDark text-textBright font-sans antialiased selection:bg-glowGreen selection:text-deepDark overflow-x-hidden">
+
+    <!-- Ambient Glowing Background Lights -->
+    <div class="fixed top-0 left-1/4 w-[600px] h-[600px] ambient-glow-green pointer-events-none z-0"></div>
+    <div class="fixed bottom-10 right-10 w-[500px] h-[500px] ambient-glow-amber pointer-events-none z-0"></div>
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-50 bg-deepDark/80 backdrop-blur-xl border-b border-white/5 px-8 py-5 transition-all">
+        <div class="max-w-[1400px] mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-3 group cursor-pointer">
+                <img src="./assets/logo.png" alt="FoodGrid AI Logo" class="h-10 w-10 object-contain transition-transform duration-700 group-hover:rotate-6">
+                <div class="flex flex-col">
+                    <span class="text-2xl font-black tracking-tight text-white">FoodGrid <span class="text-glowGreen">AI</span></span>
+                    <span class="text-[9px] font-bold text-textMuted uppercase tracking-widest -mt-1">Rescue Today. Feed Tomorrow.</span>
+                </div>
+            </div>
+
+            <nav class="hidden lg:flex items-center space-x-10 text-sm font-medium text-textMuted">
+                <a href="#home" class="text-glowGreen font-semibold border-b-2 border-glowGreen pb-1">Home</a>
+                <a href="#solutions" class="hover:text-white transition-colors duration-500">Solutions</a>
+                <a href="#resources" class="hover:text-white transition-colors duration-500">Resources</a>
+                <a href="#impact" class="hover:text-white transition-colors duration-500">Impact</a>
+                <a href="#partners" class="hover:text-white transition-colors duration-500">Partners</a>
+                <a href="#about" class="hover:text-white transition-colors duration-500">About Us</a>
+            </nav>
+
+            <div class="flex items-center space-x-6">
+                <span class="text-xs font-semibold text-textMuted hover:text-white transition duration-500 cursor-pointer">🌐 EN</span>
+                <button class="bg-glowGreen hover:bg-emeraldGlow text-deepDark font-bold text-sm px-6 py-3 rounded-2xl shadow-lg shadow-glowGreen/20 transition-all duration-500 transform hover:-translate-y-1">
+                    Login / Sign Up
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="relative z-10 max-w-[1400px] mx-auto px-8 py-12 space-y-20">
+
+        <!-- Hero Section -->
+        <section class="grid lg:grid-cols-12 gap-12 items-center min-h-[75vh]">
+            
+            <!-- Left Hero Content -->
+            <div class="lg:col-span-7 space-y-8">
+                <div class="inline-flex items-center space-x-3 bg-surfaceDark/80 border border-glowGreen/30 px-4 py-2 rounded-full backdrop-blur-md">
+                    <span class="w-2.5 h-2.5 rounded-full bg-glowGreen animate-ping"></span>
+                    <span class="text-xs font-bold text-glowGreen tracking-wider uppercase">AI-POWERED FOOD REDISTRIBUTION GRID</span>
+                </div>
+
+                <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.1]">
+                    Global Intelligent <br>
+                    <span class="gradient-text">Food Redistribution</span> Grid
+                </h1>
+
+                <p class="text-base sm:text-lg text-textMuted max-w-xl leading-relaxed font-light">
+                    Connecting surplus food to humanity smoothly. Artificial intelligence predicts, optimizes, and redistributes—before food goes to waste.
+                </p>
+
+                <div class="flex flex-wrap items-center gap-4 pt-4">
+                    <button class="bg-glowGreen hover:bg-emeraldGlow text-deepDark font-extrabold px-8 py-4 rounded-2xl text-sm shadow-2xl shadow-glowGreen/30 transition-all duration-500 transform hover:-translate-y-1 flex items-center gap-2">
+                        <span>🥦</span> Donate Surplus Food
+                    </button>
+                    <button class="bg-surfaceDark border border-white/10 hover:border-glowGreen text-white font-semibold px-8 py-4 rounded-2xl text-sm transition-all duration-500 hover:bg-white/5">
+                        🤍 Request Food
+                    </button>
+                    <button class="bg-transparent hover:text-glowGreen text-textMuted font-medium px-4 py-4 text-sm transition-colors duration-500 flex items-center gap-2">
+                        ▶ Watch Live Impact
+                    </button>
+                </div>
+
+                <div class="pt-8 border-t border-white/5">
+                    <p class="text-[11px] font-bold text-textMuted uppercase tracking-widest mb-4">TRUSTED BY GLOBAL LEADERS</p>
+                    <div class="flex flex-wrap items-center gap-10 opacity-60 hover:opacity-100 transition-opacity duration-700 filter brightness-200">
+                        <img src="./assets/walmart.png" alt="Walmart" class="h-6 object-contain">
+                        <img src="./assets/Carrefour.png" alt="Carrefour" class="h-6 object-contain">
+                        <img src="./assets/DHL.png" alt="DHL" class="h-6 object-contain">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Hero Globe & Live Pulse Dashboard -->
+            <div class="lg:col-span-5 relative">
+                <div class="bg-surfaceDark/70 border border-white/10 rounded-3xl p-6 backdrop-blur-2xl shadow-2xl fluid-card relative overflow-hidden space-y-6">
+                    
+                    <div class="relative min-h-[340px] flex items-center justify-center rounded-2xl overflow-hidden bg-deepDark/50">
+                        <img src="./assets/Neon-Green-Global-Supply-Chain-Network.png" alt="Global Supply Chain Map" class="w-full h-full object-cover animate-pulse-slow">
+                        
+                        <!-- Floating Interactive Badges -->
+                        <div class="absolute top-6 left-6 bg-deepDark/80 border border-glowGreen/40 px-3.5 py-1.5 rounded-xl text-xs font-semibold text-white shadow-xl backdrop-blur-md animate-float-slow flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-glowGreen"></span> Farms connected
+                        </div>
+                        <div class="absolute bottom-8 right-6 bg-deepDark/80 border border-softGold/40 px-3.5 py-1.5 rounded-xl text-xs font-semibold text-white shadow-xl backdrop-blur-md animate-float-slow flex items-center gap-2" style="animation-delay: 2s;">
+                            <span class="w-2 h-2 rounded-full bg-softGold"></span> Communities fed
+                        </div>
+                    </div>
+
+                    <!-- Live Quick Stats Strip -->
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="bg-deepDark/80 border border-white/5 p-3.5 rounded-xl">
+                            <div class="text-[11px] text-textMuted font-medium">Saved Today</div>
+                            <div class="text-xl font-bold text-glowGreen mt-0.5">12,540 kg</div>
+                        </div>
+                        <div class="bg-deepDark/80 border border-white/5 p-3.5 rounded-xl">
+                            <div class="text-[11px] text-textMuted font-medium">Active Deliveries</div>
+                            <div class="text-xl font-bold text-sky-400 mt-0.5">320</div>
+                        </div>
+                        <div class="bg-deepDark/80 border border-white/5 p-3.5 rounded-xl">
+                            <div class="text-[11px] text-textMuted font-medium">Food Banks</div>
+                            <div class="text-xl font-bold text-purple-400 mt-0.5">180</div>
+                        </div>
+                        <div class="bg-deepDark/80 border border-white/5 p-3.5 rounded-xl">
+                            <div class="text-[11px] text-textMuted font-medium">Cities Live</div>
+                            <div class="text-xl font-bold text-softGold mt-0.5">52</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Counter Section -->
+        <section class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div class="bg-surfaceDark/60 border border-white/10 rounded-3xl p-6 backdrop-blur-xl fluid-card space-y-2">
+                <div class="text-3xl">🌱</div>
+                <div class="text-3xl font-black text-white">1,250,000 kg</div>
+                <div class="text-xs font-medium text-textMuted">Food Saved</div>
+            </div>
+            <div class="bg-surfaceDark/60 border border-white/10 rounded-3xl p-6 backdrop-blur-xl fluid-card space-y-2">
+                <div class="text-3xl">🍴</div>
+                <div class="text-3xl font-black text-white">3.8 Million</div>
+                <div class="text-xs font-medium text-textMuted">Meals Delivered</div>
+            </div>
+            <div class="bg-surfaceDark/60 border border-white/10 rounded-3xl p-6 backdrop-blur-xl fluid-card space-y-2">
+                <div class="text-3xl">🍃</div>
+                <div class="text-3xl font-black text-white">7,420 Tons</div>
+                <div class="text-xs font-medium text-textMuted">Carbon Saved</div>
+            </div>
+            <div class="bg-surfaceDark/60 border border-white/10 rounded-3xl p-6 backdrop-blur-xl fluid-card space-y-2">
+                <div class="text-3xl">👥</div>
+                <div class="text-3xl font-black text-white">520,000</div>
+                <div class="text-xs font-medium text-textMuted">People Fed</div>
+            </div>
+        </section>
+
+        <!-- Process Pipeline Section -->
+        <section class="space-y-10">
+            <div class="text-center space-y-2 max-w-xl mx-auto">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">How Our <span class="gradient-text">AI Grid</span> Works</h2>
+                <p class="text-xs sm:text-sm text-textMuted">An effortless, continuous cold-chain rescue network</p>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-6">
+                
+                <div class="bg-surfaceDark/60 border border-white/10 rounded-3xl p-5 backdrop-blur-xl fluid-card space-y-4 flex flex-col justify-between">
+                    <img src="./assets/AI-Vision-Scan-at-the-Market.png" alt="AI Scan" class="rounded-2xl h-44 w-full object-cover">
+                    <div class="space-y-1">
+                        <div class="flex items-center space-x-2">
+                            <span class="w-6 h-6 rounded-full bg-glowGreen text-deepDark font-extrabold text-xs flex items-center justify-center">1</span>
+                            <h3 class="font-bold text-sm text-white">AI Vision Scan</h3>
+                        </div>
+                        <p class="text-xs text-textMuted leading-relaxed pt-1">Market workers instantly scan fresh items using computer vision.</p>
+                    </div>
+                </div>
+
+                <div class="bg-surfaceDark/60 border border-white/10 rounded-3xl p-5 backdrop-blur-xl fluid-card space-y-4 flex flex-col justify-between">
+                    <img src="./assets/AI-Pridiction.png" alt="AI Prediction" class="rounded-2xl h-44 w-full object-cover">
+                    <div class="space-y-1">
+                        <div class="flex items-center space-x-2">
+                            <span class="w-6 h-6 rounded-full bg-glowGreen text-deepDark font-extrabold text-xs flex items-center justify-center">2</span>
+                            <h3 class="font-bold text-sm text-white">AI Prediction</h3>
+                        </div>
+                        <p class="text-xs text-textMuted leading-relaxed pt-1">AI calculates freshness levels and remaining shelf-life hours.</p>
+                    </div>
+                </div>
+
+                <div class="bg-surfaceDark/60 border border-white/10 rounded-3xl p-5 backdrop-blur-xl fluid-card space-y-4 flex flex-col justify-between">
+                    <img src="./assets/Refrigerated-Truck-on-a-Rainy-Highway.png" alt="Logistics" class="rounded-2xl h-44 w-full object-cover">
+                    <div class="space-y-1">
+                        <div class="flex items-center space-x-2">
+                            <span class="w-6 h-6 rounded-full bg-glowGreen text-deepDark font-extrabold text-xs flex items-center justify-center">3</span>
+                            <h3 class="font-bold text-sm text-white">Smart Logistics</h3>
+                        </div>
+                        <p class="text-xs text-textMuted leading-relaxed pt-1">Automated dispatch of refrigerated transport nearby.</p>
+                    </div>
+                </div>
+
+                <div class="bg-surfaceDark/60 border border-white/10 rounded-3xl p-5 backdrop-blur-xl fluid-card space-y-4 flex flex-col justify-between">
+                    <img src="./assets/Volunteers-Sharing-Fresh-Produce.png" alt="Delivery" class="rounded-2xl h-44 w-full object-cover">
+                    <div class="space-y-1">
+                        <div class="flex items-center space-x-2">
+                            <span class="w-6 h-6 rounded-full bg-glowGreen text-deepDark font-extrabold text-xs flex items-center justify-center">4</span>
+                            <h3 class="font-bold text-sm text-white">Food Delivered</h3>
+                        </div>
+                        <p class="text-xs text-textMuted leading-relaxed pt-1">Nutritious produce arrives safely at local shelters in record time.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Feature Grid Section -->
+        <section class="space-y-8">
+            <div class="text-center">
+                <h2 class="text-3xl font-extrabold text-white">Features Built for Maximum Impact</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-surfaceDark/60 border border-white/10 rounded-3xl p-6 backdrop-blur-xl fluid-card space-y-4">
+                    <h4 class="text-sm font-bold text-glowGreen flex items-center gap-2">📷 Computer Vision Scan</h4>
+                    <img src="./assets/Neon-Freshness-Food-Card-Interface.png" alt="Computer Vision" class="rounded-2xl h-44 w-full object-cover">
+                    <p class="text-xs text-textMuted leading-relaxed">Automated quality, produce classification, and package tracking.</p>
+                </div>
+
+                <div class="bg-surfaceDark/60 border border-white/10 rounded-3xl p-6 backdrop-blur-xl fluid-card space-y-4">
+                    <h4 class="text-sm font-bold text-glowGreen flex items-center gap-2">🗺️ Cold-Chain Dynamic Routing</h4>
+                    <img src="./assets/Neon-Cold-Chain-Route-Planner.png" alt="Dynamic Routing" class="rounded-2xl h-44 w-full object-cover">
+                    <p class="text-xs text-textMuted leading-relaxed">Dynamic route planning adjusted for traffic and temperature conditions.</p>
+                </div>
+
+                <div class="bg-surfaceDark/60 border border-white/10 rounded-3xl p-6 backdrop-blur-xl fluid-card space-y-4 flex flex-col justify-between">
+                    <h4 class="text-sm font-bold text-softGold flex items-center gap-2">🏷️ Automated Tax Exemption</h4>
+                    <div class="p-5 bg-deepDark/90 rounded-2xl border border-softGold/30 space-y-2">
+                        <span class="text-[10px] font-bold text-textMuted uppercase">Tax Credit Savings</span>
+                        <div class="text-3xl font-extrabold text-softGold">₹82,000</div>
+                        <span class="text-xs font-semibold text-glowGreen">✓ Download Audit Receipt →</span>
+                    </div>
+                    <p class="text-xs text-textMuted leading-relaxed">Instant verification reports generated for enterprise partners.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Impact & Join Network Section -->
+        <section class="grid lg:grid-cols-12 gap-8 items-stretch">
+            
+            <div class="lg:col-span-8 bg-surfaceDark/60 border border-white/10 p-8 rounded-3xl backdrop-blur-xl fluid-card flex flex-col justify-between space-y-6">
+                <h3 class="text-xl font-bold text-white">Live Global Food Redistribution Radar</h3>
+                <img src="./assets/Live-Global-Food-Impact-Dashboard.png" alt="Live Global Dashboard" class="rounded-2xl w-full h-auto object-contain">
+            </div>
+
+            <div class="lg:col-span-4 space-y-8 flex flex-col justify-between">
+                <div class="bg-surfaceDark/60 border border-white/10 p-8 rounded-3xl backdrop-blur-xl fluid-card space-y-6">
+                    <div>
+                        <h3 class="text-xl font-bold text-white">Join the Movement</h3>
+                        <p class="text-xs text-textMuted mt-1">Be part of the global solution to eliminate food waste.</p>
+                    </div>
+                    <div class="space-y-3">
+                        <button class="w-full bg-glowGreen hover:bg-emeraldGlow text-deepDark font-extrabold py-3.5 rounded-2xl text-xs transition-all duration-500 shadow-xl shadow-glowGreen/20">
+                            Donate Surplus Food
+                        </button>
+                        <div class="grid grid-cols-2 gap-3">
+                            <button class="bg-deepDark border border-white/10 hover:border-glowGreen text-white font-medium py-3 rounded-2xl text-[11px] transition duration-500">Become Partner</button>
+                            <button class="bg-deepDark border border-white/10 hover:border-glowGreen text-white font-medium py-3 rounded-2xl text-[11px] transition duration-500">Register NGO</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-surfaceDark/60 border border-white/10 p-6 rounded-3xl backdrop-blur-xl fluid-card space-y-3">
+                    <h4 class="text-xs font-bold text-white">Subscribe to Impact Updates</h4>
+                    <div class="flex gap-2">
+                        <input type="email" placeholder="Enter your email" class="bg-deepDark border border-white/10 text-xs text-white rounded-xl px-4 py-3 w-full focus:outline-none focus:border-glowGreen">
+                        <button class="bg-glowGreen text-deepDark font-bold text-xs px-5 py-3 rounded-xl hover:bg-emeraldGlow transition duration-500">Join</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="border-t border-white/10 pt-10 pb-6 space-y-8">
+            <div class="flex flex-wrap items-center justify-between gap-6">
+                <span class="text-xs font-bold text-textMuted uppercase tracking-widest">Global Logistics Partners</span>
+                <div class="flex flex-wrap items-center gap-10 opacity-60 hover:opacity-100 transition-opacity duration-700 filter brightness-200">
+                    <img src="./assets/DHL.png" alt="DHL" class="h-5 object-contain">
+                    <img src="./assets/walmart.png" alt="Walmart" class="h-5 object-contain">
+                    <img src="./assets/Carrefour.png" alt="Carrefour" class="h-5 object-contain">
+                    <img src="./assets/UBER-Freight.png" alt="Uber Freight" class="h-5 object-contain">
+                    <img src="./assets/Tesco.png" alt="Tesco" class="h-5 object-contain">
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row justify-between items-center text-xs text-textMuted pt-6 border-t border-white/5">
+                <p>© 2026 FoodGrid AI, Inc. All rights reserved.</p>
+                <p>ISO 27001 Certified • SOC 2 Type II Compliant</p>
+            </div>
+        </footer>
+
+    </main>
+
+</body>
+</html>
