@@ -115,3 +115,77 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+/* ---------- 7) Chat Agent widget ---------- */
+document.addEventListener('DOMContentLoaded', () => {
+  const trigger = document.getElementById('chatAgentTrigger');
+  const panel = document.getElementById('chatAgent');
+  const overlay = document.getElementById('chatAgentOverlay');
+  const closeBtn = document.getElementById('chatAgentClose');
+  const body = document.getElementById('chatAgentBody');
+  const form = document.getElementById('chatAgentForm');
+  const input = document.getElementById('chatAgentInput');
+
+  if (!trigger || !panel) return;
+
+  const openPanel = () => { panel.classList.add('open'); overlay.classList.add('open'); };
+  const closePanel = () => { panel.classList.remove('open'); overlay.classList.remove('open'); };
+
+  trigger.addEventListener('click', openPanel);
+  closeBtn.addEventListener('click', closePanel);
+  overlay.addEventListener('click', closePanel);
+
+  // Canned responses. Swap this object for a real API call to add live AI
+  // (e.g. fetch('/api/chat', {method:'POST', body: JSON.stringify({message})}))
+  const RESPONSES = {
+    donate: "Donating food is simple! Upload a photo of your surplus produce using our AI Vision Scan. Our system instantly identifies the items, predicts remaining shelf life, and schedules a cold-chain pickup. Click \u2018Donate Surplus Food\u2019 on the homepage to start!",
+    track: "To track a dispatch, enter your 8-digit Order ID or check our Live Global Impact map. Our GPS system monitors location and cargo temperature in real time.",
+    ngo: "Verified non-profits and food banks receive donated surplus food completely free. Fill out our registration form on the Partners page to start receiving automated local delivery alerts!",
+    impact: "To date, the FoodGrid AI network has diverted over 1,250,000 kg of food from landfills, prevented 7,420 tons of CO\u2082 emissions, and delivered 3.8 million meals across 52 cities worldwide.",
+    default: "I can help with food donation, delivery tracking, NGO registration, and impact metrics. Try one of the quick options above, or ask me something specific!"
+  };
+
+  const KEYWORDS = [
+    [/donat|surplus|scan|pickup/i, 'donate'],
+    [/track|deliver|order|gps|dispatch/i, 'track'],
+    [/ngo|nonprofit|non-profit|register|food bank/i, 'ngo'],
+    [/impact|metric|stat|co2|meals|kg/i, 'impact'],
+  ];
+
+  function addMessage(text, who) {
+    const div = document.createElement('div');
+    div.className = 'chat-msg ' + who;
+    div.innerHTML = `<p>${text}</p>`;
+    body.appendChild(div);
+    body.scrollTop = body.scrollHeight;
+  }
+
+  function respondTo(topicOrText) {
+    let key = RESPONSES[topicOrText] ? topicOrText : null;
+    if (!key) {
+      for (const [pattern, topic] of KEYWORDS) {
+        if (pattern.test(topicOrText)) { key = topic; break; }
+      }
+    }
+    const reply = RESPONSES[key] || RESPONSES.default;
+    setTimeout(() => addMessage(reply, 'bot'), 350);
+  }
+
+  body.querySelectorAll('.chat-quick-replies button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      addMessage(btn.textContent, 'user');
+      respondTo(btn.dataset.topic);
+    });
+  });
+
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const text = input.value.trim();
+      if (!text) return;
+      addMessage(text, 'user');
+      respondTo(text);
+      input.value = '';
+    });
+  }
+});

@@ -23,11 +23,16 @@
           <a href="index.html">Home</a>
           <a href="solutions.html">Solutions</a>
           <a href="resources.html" class="active">Resources</a>
-          <a href="index.html#impact">Impact</a>
+          <a href="impact.html">Impact</a>
           <a href="partners.html">Partners</a>
           <a href="about.html">About Us</a>
         </div>
         <div class="nav-right">
+          <button class="btn-chat-agent" id="chatAgentTrigger" aria-label="Open FoodGrid AI Assistant">
+            <img src="assets/logo-icon.png" alt="">
+            <span>Chat Agent</span>
+            <span class="chat-dot"></span>
+          </button>
           <button class="btn-cta">Login / Sign Up</button>
           <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
         </div>
@@ -36,69 +41,86 @@
 
     <main class="container">
 
-      <section style="padding-top:56px;">
-        <div class="section-title">
+      <section class="page-hero-split">
+        <div class="hero-copy">
           <span class="eyebrow">Resources</span>
-          <h2 style="margin-top:14px;">Guides, Reports &amp; <span class="accent">Tools</span></h2>
-          <p style="color:var(--muted);font-size:13.5px;margin-top:10px;">Search guides, technical whitepapers, impact studies, and compliance tools.</p>
+          <h1>Guides, Reports &amp; <span class="blue">Tools</span> to <span class="orange">Create Impact</span></h1>
+          <p>Search technical whitepapers, ESG reports, implementation guides, and compliance tools built for donors, NGOs, and logistics partners.</p>
+          <div style="margin-top:24px;max-width:520px;">
+            <input type="text" placeholder="Search resources, reports, guides, tools..." style="width:100%;padding:14px 18px;border-radius:10px;border:1px solid var(--line);font-size:13.5px;">
+          </div>
+          <div class="filter-pills">
+            <button class="pill active">All</button>
+            <button class="pill">Guides</button>
+            <button class="pill">Reports</button>
+            <button class="pill">Webinars</button>
+            <button class="pill">Case Studies</button>
+            <button class="pill">Developer Tools</button>
+          </div>
         </div>
-        <div style="max-width:640px;margin:0 auto 40px;">
-          <input type="text" placeholder="Search guides, technical whitepapers, impact studies, and compliance tools..." style="width:100%;padding:14px 18px;border-radius:10px;border:1px solid var(--line);font-size:13.5px;">
+        <div class="page-hero-visual">
+          <img src="assets/Resource/Connected Learning Through Growth and Knowledge.png" alt="Connected learning and knowledge growth illustration">
         </div>
       </section>
 
-      <section style="padding-top:0;">
-        <div class="solutions-cta-card reveal" style="background:linear-gradient(135deg,#FDEFDD,#FBF3E8);">
-          <div style="font-size:60px;">📄</div>
-          <div>
-            <span class="eyebrow" style="margin-bottom:10px;">Featured Report</span>
-            <h2 style="margin-top:10px;">Global Food Waste &amp; AI Redistribution Report 2026</h2>
-            <p>A comprehensive study on how computer vision, shelf-life modeling, and predictive logistics reduce municipal organic waste by up to 40%.</p>
-            <button class="btn-orange-solid">Download PDF Report ↓</button>
+      <section style="padding-top:10px;">
+        <div class="featured-resource-row reveal">
+          <div class="featured-resource-card">
+            <span class="eyebrow" style="background:#DDEBFF;color:var(--blue);">FEATURED REPORT</span>
+            <h2 style="margin-top:14px;">Global Food Waste &amp; AI Redistribution Report 2026</h2>
+            <p style="color:var(--muted);font-size:13.5px;margin:10px 0 18px;">A comprehensive study on how computer vision, shelf-life modeling, and predictive logistics reduce municipal organic waste by up to 40%.</p>
+            <button class="btn-blue-solid">Download PDF Report ↓</button>
+          </div>
+          <div class="secondary-resource-list">
+            <div class="secondary-resource">
+              <div class="ico" style="background:#FCEBD8;">📘</div>
+              <div>
+                <span class="tag orange">GUIDE</span>
+                <h4>Commercial Food Safety &amp; Donation Compliance Manual</h4>
+                <p>A legal and operational playbook for donating surplus perishable goods safely.</p>
+                <a href="#">Read Guide →</a>
+              </div>
+            </div>
+            <div class="secondary-resource">
+              <div class="ico" style="background:#DFF3E3;">📊</div>
+              <div>
+                <span class="tag green">REPORT</span>
+                <h4>The State of Organic Waste Recovery 2026</h4>
+                <p>Key metrics, policy shifts, and supply chain strategies driving zero-landfill initiatives.</p>
+                <a href="#">Read Report →</a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       <section>
+        <div class="section-title"><h2>Resource <span class="accent">Categories</span></h2></div>
+        <div class="solutions-grid reveal" style="grid-template-columns:repeat(5,1fr);">
+          <div class="solution-card center"><div class="ico" style="background:#DDEBFF;margin:0 auto 10px;">📚</div><h3>Guides</h3><p>12 Resources</p></div>
+          <div class="solution-card center"><div class="ico" style="background:#FCEBD8;margin:0 auto 10px;">📈</div><h3>Reports</h3><p>8 Resources</p></div>
+          <div class="solution-card center"><div class="ico" style="background:#EDE9FE;margin:0 auto 10px;">🎥</div><h3>Webinars</h3><p>6 Resources</p></div>
+          <div class="solution-card center"><div class="ico" style="background:#DFF3E3;margin:0 auto 10px;">📁</div><h3>Case Studies</h3><p>10 Resources</p></div>
+          <div class="solution-card center"><div class="ico" style="background:#FDE4DC;margin:0 auto 10px;">🔧</div><h3>Tools</h3><p>7 Resources</p></div>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-title"><h2>Popular <span class="accent">Downloads</span></h2></div>
         <div class="solutions-grid reveal" style="grid-template-columns:repeat(3,1fr);">
-          <div class="solution-card">
-            <div class="ico" style="background:#DDEBFF;">📘</div>
-            <h3>Commercial Food Safety &amp; Donation Compliance Manual</h3>
-            <p>A legal and operational playbook for donating surplus perishable goods safely.</p>
-            <a href="#">Read Guide →</a>
-          </div>
-          <div class="solution-card">
-            <div class="ico" style="background:#DFF3E3;">📊</div>
-            <h3>The State of Organic Waste Recovery 2026</h3>
-            <p>Key metrics, policy shifts, and supply chain strategies driving modern zero-landfill initiatives.</p>
-            <a href="#">Read Report →</a>
-          </div>
-          <div class="solution-card">
-            <div class="ico" style="background:#EDE9FE;">🧊</div>
-            <h3>Predictive Cold-Chain Logistics in Urban Environments</h3>
-            <p>Technical analysis on minimizing food degradation using dynamic route selection.</p>
-            <a href="#">Read Whitepaper →</a>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <div class="section-title"><h2>Browse by <span class="accent">Category</span></h2></div>
-        <div class="solutions-grid reveal" style="grid-template-columns:repeat(4,1fr);">
-          <div class="solution-card"><div class="ico" style="background:#DDEBFF;">📚</div><h3>Guides</h3><p>12 files — step-by-step operational workflows for store managers.</p></div>
-          <div class="solution-card"><div class="ico" style="background:#FCEBD8;">📈</div><h3>Reports</h3><p>8 files — data-driven policy and climate impact analyses.</p></div>
-          <div class="solution-card"><div class="ico" style="background:#DFF3E3;">🎥</div><h3>Webinars</h3><p>6 sessions — recorded panels with food rescue leaders.</p></div>
-          <div class="solution-card"><div class="ico" style="background:#FDE4DC;">📁</div><h3>Case Studies</h3><p>10 stories — field results from municipal deployment pilots.</p></div>
+          <div class="solution-card"><div class="ico" style="background:#FDE4DC;">📕</div><h3>Food Redistribution Best Practices Guide</h3><p>PDF Guide</p><a href="#">Download →</a></div>
+          <div class="solution-card"><div class="ico" style="background:#DFF3E3;">🤖</div><h3>AI in Food Rescue: Implementation Framework</h3><p>PDF Guide</p><a href="#">Download →</a></div>
+          <div class="solution-card"><div class="ico" style="background:#FCEBD8;">🧮</div><h3>Tax Credit Optimization Checklist for Retailers</h3><p>Excel Tool</p><a href="#">Download →</a></div>
         </div>
       </section>
 
       <section>
         <div class="solutions-cta-card reveal">
-          <div style="font-size:60px;">🎓</div>
+          <img src="assets/Resource/Orange Handshake with Eco Sparkles.png" alt="Handshake with eco sparkles">
           <div>
             <h2>Need Custom Data or <span>Research Support?</span></h2>
             <p>Our team assists researchers, municipal authorities, and enterprise CSR teams with custom impact models and data extracts.</p>
-            <button class="btn-blue-solid">Contact Research Team</button>
+            <button class="btn-orange-solid">Contact Research Team</button>
           </div>
         </div>
       </section>
@@ -138,7 +160,7 @@
             <h4>Resources</h4>
             <a href="resources.html">API Docs</a>
             <a href="resources.html">Whitepaper</a>
-            <a href="resources.html">Impact Metrics</a>
+            <a href="impact.html">Impact Metrics</a>
             <a href="resources.html">Research Papers</a>
             <a href="resources.html">Help Center</a>
           </div>
@@ -170,6 +192,42 @@
     </footer>
 
   </div>
+
+  <!-- ============ CHAT AGENT WIDGET ============ -->
+  <div id="chatAgent" class="chat-agent-panel">
+    <div class="chat-agent-header">
+      <img src="assets/logo-icon.png" alt="FoodGrid AI">
+      <div>
+        <div class="chat-agent-title">FoodGrid AI Assistant</div>
+        <div class="chat-agent-status"><span class="chat-dot"></span>Online</div>
+      </div>
+      <button id="chatAgentClose" aria-label="Close chat">✕</button>
+    </div>
+    <div class="chat-agent-body" id="chatAgentBody">
+      <div class="chat-msg bot">
+        <p>Hi there 👋 I'm your FoodGrid AI Assistant. I can help you with:</p>
+        <ul>
+          <li>Food donation &amp; eligibility</li>
+          <li>Delivery tracking &amp; logistics</li>
+          <li>NGO &amp; partner registration</li>
+          <li>Impact metrics &amp; reports</li>
+          <li>Tax credits &amp; documentation</li>
+        </ul>
+      </div>
+      <div class="chat-quick-replies">
+        <button data-topic="donate">📦 How to Donate Food</button>
+        <button data-topic="track">🚚 Track Active Delivery</button>
+        <button data-topic="ngo">🏛️ Register as NGO</button>
+        <button data-topic="impact">📊 View Impact Metrics</button>
+      </div>
+    </div>
+    <form class="chat-agent-input" id="chatAgentForm">
+      <input type="text" id="chatAgentInput" placeholder="Type your question here...">
+      <button type="submit" aria-label="Send">➤</button>
+    </form>
+    <div class="chat-agent-disclaimer">FoodGrid AI Assistant can make mistakes. Please verify important information.</div>
+  </div>
+  <div id="chatAgentOverlay"></div>
 
 <script src="script.js"></script>
 </body>

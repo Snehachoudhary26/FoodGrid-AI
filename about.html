@@ -23,11 +23,16 @@
           <a href="index.html">Home</a>
           <a href="solutions.html">Solutions</a>
           <a href="resources.html">Resources</a>
-          <a href="index.html#impact">Impact</a>
+          <a href="impact.html">Impact</a>
           <a href="partners.html">Partners</a>
           <a href="about.html" class="active">About Us</a>
         </div>
         <div class="nav-right">
+          <button class="btn-chat-agent" id="chatAgentTrigger" aria-label="Open FoodGrid AI Assistant">
+            <img src="assets/logo-icon.png" alt="">
+            <span>Chat Agent</span>
+            <span class="chat-dot"></span>
+          </button>
           <button class="btn-cta">Login / Sign Up</button>
           <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
         </div>
@@ -36,35 +41,63 @@
 
     <main class="container">
 
-      <section style="padding-top:56px;">
-        <div class="hero-copy" style="max-width:700px;margin:0 auto;text-align:center;">
-          <span class="eyebrow">About Us</span>
-          <h1 style="margin:16px auto;">AI-Powered Technology.<br><span class="blue">Human-Centered</span> <span class="orange">Impact.</span></h1>
-          <p style="margin:0 auto;">FoodGrid AI builds software that ensures no edible food goes to waste while community members face hunger.</p>
-        </div>
-      </section>
-
-      <section>
-        <div class="section-title"><h2>Our <span class="accent">Journey</span></h2></div>
-        <div class="solutions-grid reveal" style="grid-template-columns:repeat(4,1fr);">
-          <div class="solution-card"><div class="ico" style="background:#DDEBFF;">🌱</div><h3>2023 — The Foundation</h3><p>Project launched by software engineers and logistics specialists to address local farm surplus waste.</p></div>
-          <div class="solution-card"><div class="ico" style="background:#DFF3E3;">🤖</div><h3>2024 — Algorithm Launch</h3><p>Deployed initial Computer Vision and Freshness Prediction models across regional supermarket pilots.</p></div>
-          <div class="solution-card"><div class="ico" style="background:#FCEBD8;">🏙️</div><h3>2025 — Multi-City Expansion</h3><p>Scaled infrastructure to support 20+ municipal areas and hundreds of verified food banks.</p></div>
-          <div class="solution-card"><div class="ico" style="background:#EDE9FE;">🌍</div><h3>2026 — Global Intelligence Grid</h3><p>Integrated real-time carbon tracking, dynamic routing, and automated tax reporting into one platform.</p></div>
-        </div>
-      </section>
-
-      <section>
-        <div class="solutions-grid reveal" style="grid-template-columns:repeat(2,1fr);">
-          <div class="solution-card">
-            <div class="ico" style="background:#DFF3E3;">🎯</div>
-            <h3>Our Mission</h3>
-            <p>To build an automated, intelligent distribution network that identifies and routes surplus food to individuals in need — instantly, safely, and transparently.</p>
+      <section class="page-hero-split">
+        <div class="hero-copy">
+          <span class="eyebrow">About FoodGrid AI</span>
+          <h1>AI-Powered Technology.<br><span class="blue">Human-Centered</span> Impact.</h1>
+          <p>FoodGrid AI is on a mission to build a world where no good food goes to waste and no one goes hungry. We use artificial intelligence and real-time data to connect surplus food with those who need it most.</p>
+          <div class="value-mini-grid">
+            <div><div class="mini-ico" style="background:#DFF3E3;">🌱</div><div><strong>Reduce Food Waste</strong><p>We help organizations reduce waste through smart matching and routing.</p></div></div>
+            <div><div class="mini-ico" style="background:#DDEBFF;">🤖</div><div><strong>Powered by AI</strong><p>Our AI models predict, optimize, and improve redistribution at scale.</p></div></div>
+            <div><div class="mini-ico" style="background:#FDE4DC;">❤️</div><div><strong>Feed More People</strong><p>Every connection made helps put nutritious food on the table.</p></div></div>
+            <div><div class="mini-ico" style="background:#FCEBD8;">🛡️</div><div><strong>Trusted &amp; Transparent</strong><p>We ensure full transparency, safety, and accountability at every step.</p></div></div>
           </div>
-          <div class="solution-card">
+          <button class="btn-outline" style="margin-top:10px;">▷ Watch Our Story</button>
+        </div>
+        <div class="page-hero-visual">
+          <img src="assets/About us/Fresh Harvest, Shared with Care.png" alt="FoodGrid AI volunteers sharing a fresh harvest box">
+        </div>
+      </section>
+
+      <section style="padding-top:10px;">
+        <div class="solutions-impact-strip reveal">
+          <div class="item"><div class="ico" style="background:#FCEBD8;">📅</div><div><div class="num" style="color:var(--orange-deep);">2023</div><div class="lab">Founded</div></div></div>
+          <div class="item"><div class="ico" style="background:#DFF3E3;">👥</div><div><div class="num">250+</div><div class="lab">Organizations</div></div></div>
+          <div class="item"><div class="ico" style="background:#EDE9FE;">🌐</div><div><div class="num" style="color:#6D5BD0;">52</div><div class="lab">Cities</div></div></div>
+          <div class="item"><div class="ico" style="background:#DDEBFF;">📦</div><div><div class="num" style="color:var(--blue);">1.25M kg</div><div class="lab">Food Saved</div></div></div>
+          <div class="item"><div class="ico" style="background:#DFF3E3;">🌿</div><div><div class="num">7,420 Tons</div><div class="lab">CO₂ Prevented</div></div></div>
+          <div class="item"><div class="ico" style="background:#FDE4DC;">👥</div><div><div class="num" style="color:var(--coral);">520,000</div><div class="lab">Lives Impacted</div></div></div>
+        </div>
+      </section>
+
+      <section>
+        <div class="about-story reveal">
+          <div>
+            <h2 style="margin-bottom:14px;">Our Story</h2>
+            <p style="color:var(--muted);font-size:13.5px;line-height:1.7;margin-bottom:14px;">FoodGrid AI was founded by a group of technologists, logistics specialists, and sustainability advocates who saw a stark gap between food availability and food access.</p>
+            <p style="color:var(--muted);font-size:13.5px;line-height:1.7;">We believe technology can be a powerful force for good — that's why we built a platform that leverages AI, real-time data, and dynamic routing to create a smarter, faster, and more transparent food redistribution ecosystem.</p>
+          </div>
+          <div class="timeline-row">
+            <div class="timeline-step"><div class="t-ico" style="background:#FCEBD8;">💡</div><strong>2023</strong><span>The Foundation</span><p>Project launched to address local farm surplus waste.</p></div>
+            <div class="timeline-step"><div class="t-ico" style="background:#DDEBFF;">🚀</div><strong>2024</strong><span>Algorithm Launch</span><p>Deployed Computer Vision &amp; Freshness Prediction models.</p></div>
+            <div class="timeline-step"><div class="t-ico" style="background:#DFF3E3;">📈</div><strong>2025</strong><span>Multi-City Expansion</span><p>Scaled to 20+ municipal areas and hundreds of food banks.</p></div>
+            <div class="timeline-step"><div class="t-ico" style="background:#EDE9FE;">🌍</div><strong>2026</strong><span>Global Intelligence Grid</span><p>Unified carbon tracking, routing, and tax reporting.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="mission-vision-band reveal">
+          <img src="assets/About us/Eco Globe with Leafy Accents.png" alt="Eco globe with leafy accents">
+          <div class="mv-card">
+            <div class="ico" style="background:#FCEBD8;">🎯</div>
+            <h3>Our Mission</h3>
+            <p>Rescue surplus food. Feed those in need. Build a waste-free world.</p>
+          </div>
+          <div class="mv-card">
             <div class="ico" style="background:#DDEBFF;">🔭</div>
             <h3>Our Vision</h3>
-            <p>A resilient world where supply chains eliminate edible organic waste entirely, establishing equitable food access across every community.</p>
+            <p>A world where no good food goes to waste and no one goes hungry.</p>
           </div>
         </div>
       </section>
@@ -104,7 +137,7 @@
             <h4>Resources</h4>
             <a href="resources.html">API Docs</a>
             <a href="resources.html">Whitepaper</a>
-            <a href="resources.html">Impact Metrics</a>
+            <a href="impact.html">Impact Metrics</a>
             <a href="resources.html">Research Papers</a>
             <a href="resources.html">Help Center</a>
           </div>
@@ -136,6 +169,42 @@
     </footer>
 
   </div>
+
+  <!-- ============ CHAT AGENT WIDGET ============ -->
+  <div id="chatAgent" class="chat-agent-panel">
+    <div class="chat-agent-header">
+      <img src="assets/logo-icon.png" alt="FoodGrid AI">
+      <div>
+        <div class="chat-agent-title">FoodGrid AI Assistant</div>
+        <div class="chat-agent-status"><span class="chat-dot"></span>Online</div>
+      </div>
+      <button id="chatAgentClose" aria-label="Close chat">✕</button>
+    </div>
+    <div class="chat-agent-body" id="chatAgentBody">
+      <div class="chat-msg bot">
+        <p>Hi there 👋 I'm your FoodGrid AI Assistant. I can help you with:</p>
+        <ul>
+          <li>Food donation &amp; eligibility</li>
+          <li>Delivery tracking &amp; logistics</li>
+          <li>NGO &amp; partner registration</li>
+          <li>Impact metrics &amp; reports</li>
+          <li>Tax credits &amp; documentation</li>
+        </ul>
+      </div>
+      <div class="chat-quick-replies">
+        <button data-topic="donate">📦 How to Donate Food</button>
+        <button data-topic="track">🚚 Track Active Delivery</button>
+        <button data-topic="ngo">🏛️ Register as NGO</button>
+        <button data-topic="impact">📊 View Impact Metrics</button>
+      </div>
+    </div>
+    <form class="chat-agent-input" id="chatAgentForm">
+      <input type="text" id="chatAgentInput" placeholder="Type your question here...">
+      <button type="submit" aria-label="Send">➤</button>
+    </form>
+    <div class="chat-agent-disclaimer">FoodGrid AI Assistant can make mistakes. Please verify important information.</div>
+  </div>
+  <div id="chatAgentOverlay"></div>
 
 <script src="script.js"></script>
 </body>
