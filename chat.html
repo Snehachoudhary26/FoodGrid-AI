@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chat Agent — FoodGrid AI</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="home">
+
+    <header>
+      <nav>
+        <div class="brand">
+          <img src="assets/logo-icon.png" alt="logo">
+          <div>
+            <div class="brand-text">FoodGrid <span>AI</span></div>
+            <div class="brand-tag">Rescue Today, Feed Tomorrow</div>
+          </div>
+        </div>
+        <div class="nav-links" id="navLinks">
+          <a href="index.html">Home</a>
+          <a href="solutions.html">Solutions</a>
+          <a href="resources.html">Resources</a>
+          <a href="impact.html">Impact</a>
+          <a href="partners.html">Partners</a>
+          <a href="about.html">About Us</a>
+        </div>
+        <div class="nav-right">
+          <a href="chat.html" class="btn-chat-agent active">
+            <img src="assets/logo-icon.png" alt="">
+            <span>Chat Agent</span>
+            <span class="chat-dot"></span>
+          </a>
+          <a href="login.html" class="btn-cta">Login / Sign Up</a>
+          <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+        </div>
+      </nav>
+    </header>
+
+    <main class="chat-page">
+
+      <aside class="chat-sidebar">
+        <div class="chat-sidebar-header">
+          <div class="chat-agent-title">FoodGrid AI Assistant</div>
+          <div class="chat-agent-status"><span class="chat-dot"></span>Online</div>
+        </div>
+        <button class="btn-orange-solid" id="newConvoBtn" style="width:100%;margin:14px 0;">+ New Conversation</button>
+
+        <div class="chat-sidebar-section">
+          <h4>Conversations</h4>
+          <div class="convo-item"><span>How to donate food?</span><time>2 mins ago</time></div>
+          <div class="convo-item"><span>Track my delivery</span><time>1 hour ago</time></div>
+          <div class="convo-item"><span>NGO registration process</span><time>Yesterday</time></div>
+          <div class="convo-item"><span>Impact metrics</span><time>2 days ago</time></div>
+          <div class="convo-item"><span>Tax credit for donations</span><time>3 days ago</time></div>
+          <a href="#" class="view-all-link">View all conversations →</a>
+        </div>
+
+        <div class="chat-sidebar-section">
+          <h4>Popular Topics</h4>
+          <a class="topic-item" href="#">🌱 For Donors</a>
+          <a class="topic-item" href="#">🏛️ For NGOs</a>
+          <a class="topic-item" href="#">🚚 For Logistics Partners</a>
+          <a class="topic-item" href="#">❤️ For Volunteers</a>
+          <a class="topic-item" href="#">📊 Impact &amp; Reports</a>
+          <a class="topic-item" href="#">&lt;/&gt; Platform &amp; API</a>
+        </div>
+
+        <div class="chat-help-card">
+          <div class="ico">🎧</div>
+          <strong>Need Immediate Help?</strong>
+          <p>Chat with our support team for quick assistance.</p>
+          <button class="btn-outline" style="width:100%;">📊 Start Live Chat</button>
+        </div>
+      </aside>
+
+      <section class="chat-main">
+        <div class="chat-main-header">
+          <img src="assets/chat agent/globa-with-juice-tomato.png" alt="FoodGrid AI Assistant">
+          <div>
+            <div class="chat-agent-title">FoodGrid AI Assistant</div>
+            <div class="chat-agent-sub">Your intelligent guide to food redistribution</div>
+          </div>
+          <span class="pill" style="background:#DFF3E3;color:var(--green);">⚡ AI-Powered</span>
+          <span class="pill" style="background:#DDEBFF;color:var(--blue);">🕐 24/7 Available</span>
+        </div>
+
+        <div class="chat-main-body" id="chatMainBody">
+          <div class="chat-msg bot wide">
+            <p><strong>Hi there 👋</strong></p>
+            <p>I'm your FoodGrid AI Assistant. I can help you with:</p>
+            <ul>
+              <li>✅ Food donation &amp; eligibility</li>
+              <li>✅ Delivery tracking &amp; logistics</li>
+              <li>✅ NGO &amp; partner registration</li>
+              <li>✅ Impact metrics &amp; reports</li>
+              <li>✅ Tax credits &amp; documentation</li>
+              <li>✅ Platform integrations &amp; APIs</li>
+            </ul>
+          </div>
+          <div class="chat-quick-replies wide">
+            <button data-topic="donate">📦 How to Donate Food</button>
+            <button data-topic="track">🚚 Track Active Delivery</button>
+            <button data-topic="ngo">🏛️ Register as NGO</button>
+            <button data-topic="impact">📊 View Impact Metrics</button>
+          </div>
+        </div>
+
+        <form class="chat-agent-input" id="chatAgentForm">
+          <input type="text" id="chatAgentInput" placeholder="Type your question here...">
+          <button type="submit" aria-label="Send">➤</button>
+        </form>
+        <div class="chat-agent-disclaimer">FoodGrid AI Assistant can make mistakes. Please verify important information.</div>
+      </section>
+
+      <aside class="chat-right">
+        <div class="chat-sidebar-section">
+          <h4>Quick Links</h4>
+          <a class="quicklink-item" href="index.html"><span class="ico" style="background:#DFF3E3;">🌱</span><div><strong>Donate Surplus Food</strong><p>Easy food donation process</p></div></a>
+          <a class="quicklink-item" href="index.html"><span class="ico" style="background:#DDEBFF;">❤️</span><div><strong>Request Food</strong><p>Get food for your organization</p></div></a>
+          <a class="quicklink-item" href="partners.html"><span class="ico" style="background:#FCEBD8;">🤝</span><div><strong>Become a Partner</strong><p>Join our global network</p></div></a>
+          <a class="quicklink-item" href="about.html"><span class="ico" style="background:#FDE4DC;">❤️</span><div><strong>Volunteer With Us</strong><p>Make a difference today</p></div></a>
+          <a class="quicklink-item" href="solutions.html"><span class="ico" style="background:#EDE9FE;">%</span><div><strong>Tax Credit Calculator</strong><p>Calculate your tax benefits</p></div></a>
+        </div>
+
+        <div class="chat-sidebar-section">
+          <h4>Global Resources</h4>
+          <a class="resource-link" href="https://foodloss.fao.org" target="_blank" rel="noopener"><span class="ico">🌐</span><div><strong>FAO – Food Loss Prevention</strong><p>foodloss.fao.org</p></div></a>
+          <a class="resource-link" href="https://www.wfp.org" target="_blank" rel="noopener"><span class="ico">🌐</span><div><strong>World Food Programme</strong><p>wfp.org</p></div></a>
+          <a class="resource-link" href="https://www.feedingamerica.org" target="_blank" rel="noopener"><span class="ico">🌐</span><div><strong>Feeding America</strong><p>feedingamerica.org</p></div></a>
+          <a class="resource-link" href="https://savefood.global" target="_blank" rel="noopener"><span class="ico">🌐</span><div><strong>Save Food Global</strong><p>savefood.global</p></div></a>
+          <a class="resource-link" href="https://www.wrap.org.uk" target="_blank" rel="noopener"><span class="ico">🌐</span><div><strong>WRAP – Food Waste</strong><p>wrap.org.uk</p></div></a>
+          <a href="#" class="view-all-link">View all resources →</a>
+        </div>
+
+        <div class="chat-sidebar-section">
+          <h4>Platform Status</h4>
+          <div class="status-row"><span class="status-dot ok"></span>All Systems Operational</div>
+          <div class="status-row muted">AI Services <span class="status-ok">Operational</span></div>
+          <div class="status-row muted">Delivery Network <span class="status-ok">Operational</span></div>
+          <div class="status-row muted">Database <span class="status-ok">Operational</span></div>
+          <a href="#" class="view-all-link">View status page →</a>
+        </div>
+      </aside>
+
+    </main>
+
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Log In — FoodGrid AI</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-body">
+
+  <div class="auth-card">
+    <div class="auth-logo">
+      <img src="assets/logo-icon.png" alt="FoodGrid AI">
+      <div>
+        <div class="brand-text" style="font-size:22px;">FoodGrid <span>AI</span></div>
+        <div class="brand-tag">Rescue Today, Feed Tomorrow</div>
+      </div>
+    </div>
+
+    <h1 class="auth-title">Welcome Back</h1>
+    <p class="auth-sub">Log in to continue your impact journey</p>
+
+    <form class="auth-form" onsubmit="return false;">
+      <label>Phone Number</label>
+      <div class="phone-row">
+        <button type="button" class="country-select" id="countrySelect">
+          <span id="countryFlag">🇮🇳</span>
+          <span id="countryDial">+91</span>
+          <span class="chevron">▾</span>
+        </button>
+        <div class="input-with-icon" style="flex:1;">
+          <input type="tel" placeholder="Enter your phone number">
+        </div>
+        <div class="country-dropdown" id="countryDropdown">
+          <input type="text" id="countrySearch" placeholder="Search country...">
+          <div class="country-list" id="countryList"></div>
+        </div>
+      </div>
+
+      <label>Password</label>
+      <div class="input-with-icon">
+        <input type="password" placeholder="Enter your password" id="pw1">
+        <button type="button" class="pw-toggle" data-target="pw1">👁️</button>
+      </div>
+
+      <p style="text-align:right;margin-top:-6px;"><a href="#" style="font-size:12.5px;color:var(--blue);font-weight:600;">Forgot Password?</a></p>
+
+      <button type="submit" class="btn-primary" style="width:100%;justify-content:center;font-size:14px;padding:15px;margin-top:6px;">Log In</button>
+
+      <div class="auth-divider"><span>or</span></div>
+
+      <button type="button" class="btn-outline" style="width:100%;justify-content:center;font-size:14px;padding:15px;">✉ Log in with Email</button>
+
+      <p class="auth-footer-link">Don't have an account? <a href="signup.html">Sign Up</a></p>
+    </form>
+  </div>
+
+<script src="countries.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

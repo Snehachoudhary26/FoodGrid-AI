@@ -42,12 +42,12 @@
           <a href="about.html">About Us</a>
         </div>
         <div class="nav-right">
-          <button class="btn-chat-agent" id="chatAgentTrigger" aria-label="Open FoodGrid AI Assistant">
+          <a href="chat.html" class="btn-chat-agent">
             <img src="assets/logo-icon.png" alt="">
             <span>Chat Agent</span>
             <span class="chat-dot"></span>
-          </button>
-          <button class="btn-cta">Login / Sign Up</button>
+          </a>
+          <a href="login.html" class="btn-cta">Login / Sign Up</a>
           <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
         </div>
       </nav>
@@ -316,44 +316,6 @@
     </footer>
 
   </div>
-
-
-  <!-- ============ CHAT AGENT WIDGET ============ -->
-  <div id="chatAgent" class="chat-agent-panel">
-    <div class="chat-agent-header">
-      <img src="assets/logo-icon.png" alt="FoodGrid AI">
-      <div>
-        <div class="chat-agent-title">FoodGrid AI Assistant</div>
-        <div class="chat-agent-status"><span class="chat-dot"></span>Online</div>
-      </div>
-      <button id="chatAgentClose" aria-label="Close chat">✕</button>
-    </div>
-    <div class="chat-agent-body" id="chatAgentBody">
-      <div class="chat-msg bot">
-        <p>Hi there 👋 I'm your FoodGrid AI Assistant. I can help you with:</p>
-        <ul>
-          <li>Food donation &amp; eligibility</li>
-          <li>Delivery tracking &amp; logistics</li>
-          <li>NGO &amp; partner registration</li>
-          <li>Impact metrics &amp; reports</li>
-          <li>Tax credits &amp; documentation</li>
-        </ul>
-      </div>
-      <div class="chat-quick-replies">
-        <button data-topic="donate">📦 How to Donate Food</button>
-        <button data-topic="track">🚚 Track Active Delivery</button>
-        <button data-topic="ngo">🏛️ Register as NGO</button>
-        <button data-topic="impact">📊 View Impact Metrics</button>
-      </div>
-    </div>
-    <form class="chat-agent-input" id="chatAgentForm">
-      <input type="text" id="chatAgentInput" placeholder="Type your question here...">
-      <button type="submit" aria-label="Send">➤</button>
-    </form>
-    <div class="chat-agent-disclaimer">FoodGrid AI Assistant can make mistakes. Please verify important information.</div>
-  </div>
-  <div id="chatAgentOverlay"></div>
-
 <script src="script.js"></script>
 </body>
 </html>

@@ -4,6 +4,11 @@
 // 3) Nav bar shadow on scroll
 // 4) Animated counting numbers in the stats bar
 
+// Mark JS as booted immediately, before anything else runs. CSS only hides
+// .reveal content once this class is present — so a JS error further down
+// this file can never leave a section permanently blank.
+document.documentElement.classList.add('js-ready');
+
 document.addEventListener('DOMContentLoaded', () => {
 
   /* ---------- 1) Splash intro ---------- */
@@ -13,8 +18,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // (delay baked into the #splash.hide animation in style.css), ending ~4.6s.
   const SPLASH_TOTAL = 4600;
 
+  if (splash) {
   splash.classList.add('hide'); // CSS animation-delay handles the timing
-  setTimeout(() => { splash.style.display = 'none'; }, SPLASH_TOTAL);
+    setTimeout(() => { splash.style.display = 'none'; }, SPLASH_TOTAL);
+  }
 
   /* ---- Optional: play splash only once per browser session ----
   if (sessionStorage.getItem('fg_splash_shown')) {
@@ -116,24 +123,13 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-/* ---------- 7) Chat Agent widget ---------- */
+/* ---------- 7) Chat Agent page (chat.html) ---------- */
 document.addEventListener('DOMContentLoaded', () => {
-  const trigger = document.getElementById('chatAgentTrigger');
-  const panel = document.getElementById('chatAgent');
-  const overlay = document.getElementById('chatAgentOverlay');
-  const closeBtn = document.getElementById('chatAgentClose');
-  const body = document.getElementById('chatAgentBody');
+  const body = document.getElementById('chatMainBody');
   const form = document.getElementById('chatAgentForm');
   const input = document.getElementById('chatAgentInput');
 
-  if (!trigger || !panel) return;
-
-  const openPanel = () => { panel.classList.add('open'); overlay.classList.add('open'); };
-  const closePanel = () => { panel.classList.remove('open'); overlay.classList.remove('open'); };
-
-  trigger.addEventListener('click', openPanel);
-  closeBtn.addEventListener('click', closePanel);
-  overlay.addEventListener('click', closePanel);
+  if (!body || !form) return;
 
   // Canned responses. Swap this object for a real API call to add live AI
   // (e.g. fetch('/api/chat', {method:'POST', body: JSON.stringify({message})}))
@@ -188,4 +184,59 @@ document.addEventListener('DOMContentLoaded', () => {
       input.value = '';
     });
   }
+});
+
+/* ---------- 8) Country code dropdown (login/signup pages) ---------- */
+document.addEventListener('DOMContentLoaded', () => {
+  const selectBtn = document.getElementById('countrySelect');
+  const dropdown = document.getElementById('countryDropdown');
+  const listEl = document.getElementById('countryList');
+  const searchEl = document.getElementById('countrySearch');
+  const flagEl = document.getElementById('countryFlag');
+  const dialEl = document.getElementById('countryDial');
+
+  if (!selectBtn || typeof COUNTRIES === 'undefined') return;
+
+  function renderList(filter) {
+    const q = (filter || '').toLowerCase();
+    listEl.innerHTML = '';
+    COUNTRIES
+      .filter(c => c.name.toLowerCase().includes(q) || c.dial.includes(q))
+      .forEach(c => {
+        const el = document.createElement('div');
+        el.className = 'country-option';
+        el.innerHTML = `<span>${c.flag}</span><span>${c.name}</span><span class="dial">${c.dial}</span>`;
+        el.addEventListener('click', () => {
+          flagEl.textContent = c.flag;
+          dialEl.textContent = c.dial;
+          dropdown.classList.remove('open');
+          searchEl.value = '';
+          renderList('');
+        });
+        listEl.appendChild(el);
+      });
+  }
+  renderList('');
+
+  selectBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    dropdown.classList.toggle('open');
+    if (dropdown.classList.contains('open')) searchEl.focus();
+  });
+
+  searchEl.addEventListener('input', () => renderList(searchEl.value));
+  document.addEventListener('click', (e) => {
+    if (!dropdown.contains(e.target) && e.target !== selectBtn) {
+      dropdown.classList.remove('open');
+    }
+  });
+
+  // Password show/hide toggles
+  document.querySelectorAll('.pw-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = document.getElementById(btn.dataset.target);
+      if (!target) return;
+      target.type = target.type === 'password' ? 'text' : 'password';
+    });
+  });
 });

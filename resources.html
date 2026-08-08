@@ -28,12 +28,12 @@
           <a href="about.html">About Us</a>
         </div>
         <div class="nav-right">
-          <button class="btn-chat-agent" id="chatAgentTrigger" aria-label="Open FoodGrid AI Assistant">
+          <a href="chat.html" class="btn-chat-agent">
             <img src="assets/logo-icon.png" alt="">
             <span>Chat Agent</span>
             <span class="chat-dot"></span>
-          </button>
-          <button class="btn-cta">Login / Sign Up</button>
+          </a>
+          <a href="login.html" class="btn-cta">Login / Sign Up</a>
           <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
         </div>
       </nav>
@@ -65,11 +65,14 @@
 
       <section style="padding-top:10px;">
         <div class="featured-resource-row reveal">
-          <div class="featured-resource-card">
-            <span class="eyebrow" style="background:#DDEBFF;color:var(--blue);">FEATURED REPORT</span>
-            <h2 style="margin-top:14px;">Global Food Waste &amp; AI Redistribution Report 2026</h2>
-            <p style="color:var(--muted);font-size:13.5px;margin:10px 0 18px;">A comprehensive study on how computer vision, shelf-life modeling, and predictive logistics reduce municipal organic waste by up to 40%.</p>
-            <button class="btn-blue-solid">Download PDF Report ↓</button>
+          <div class="featured-resource-card" style="display:flex;gap:22px;align-items:center;">
+            <img src="assets/Resource/global-book.png" alt="Global Food Waste Impact Report 2024 cover" style="width:130px;border-radius:8px;box-shadow:0 12px 30px rgba(31,42,32,0.15);flex-shrink:0;">
+            <div>
+              <span class="eyebrow" style="background:#DDEBFF;color:var(--blue);">FEATURED REPORT</span>
+              <h2 style="margin-top:14px;font-size:20px;">Global Food Waste &amp; AI Redistribution Report — Draft 1</h2>
+              <p style="color:var(--muted);font-size:13.5px;margin:10px 0 18px;">Our research draft proposing an AI-assisted coordination architecture for surplus food redistribution — grounded in UNEP and FAO data, with target performance metrics clearly separated from simulated or measured results.</p>
+              <button class="btn-blue-solid">Download PDF Report ↓</button>
+            </div>
           </div>
           <div class="secondary-resource-list">
             <div class="secondary-resource">
@@ -85,8 +88,8 @@
               <div class="ico" style="background:#DFF3E3;">📊</div>
               <div>
                 <span class="tag green">REPORT</span>
-                <h4>The State of Organic Waste Recovery 2026</h4>
-                <p>Key metrics, policy shifts, and supply chain strategies driving zero-landfill initiatives.</p>
+                <h4>Phase 2: Existing Solutions &amp; Research Gap</h4>
+                <p>A literature review of Too Good To Go, OLIO, Feeding America, and FoodCloud — and where FoodGrid AI's research contribution actually sits.</p>
                 <a href="#">Read Report →</a>
               </div>
             </div>
@@ -192,43 +195,6 @@
     </footer>
 
   </div>
-
-  <!-- ============ CHAT AGENT WIDGET ============ -->
-  <div id="chatAgent" class="chat-agent-panel">
-    <div class="chat-agent-header">
-      <img src="assets/logo-icon.png" alt="FoodGrid AI">
-      <div>
-        <div class="chat-agent-title">FoodGrid AI Assistant</div>
-        <div class="chat-agent-status"><span class="chat-dot"></span>Online</div>
-      </div>
-      <button id="chatAgentClose" aria-label="Close chat">✕</button>
-    </div>
-    <div class="chat-agent-body" id="chatAgentBody">
-      <div class="chat-msg bot">
-        <p>Hi there 👋 I'm your FoodGrid AI Assistant. I can help you with:</p>
-        <ul>
-          <li>Food donation &amp; eligibility</li>
-          <li>Delivery tracking &amp; logistics</li>
-          <li>NGO &amp; partner registration</li>
-          <li>Impact metrics &amp; reports</li>
-          <li>Tax credits &amp; documentation</li>
-        </ul>
-      </div>
-      <div class="chat-quick-replies">
-        <button data-topic="donate">📦 How to Donate Food</button>
-        <button data-topic="track">🚚 Track Active Delivery</button>
-        <button data-topic="ngo">🏛️ Register as NGO</button>
-        <button data-topic="impact">📊 View Impact Metrics</button>
-      </div>
-    </div>
-    <form class="chat-agent-input" id="chatAgentForm">
-      <input type="text" id="chatAgentInput" placeholder="Type your question here...">
-      <button type="submit" aria-label="Send">➤</button>
-    </form>
-    <div class="chat-agent-disclaimer">FoodGrid AI Assistant can make mistakes. Please verify important information.</div>
-  </div>
-  <div id="chatAgentOverlay"></div>
-
 <script src="script.js"></script>
 </body>
 </html>
